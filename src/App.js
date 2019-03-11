@@ -7,29 +7,29 @@ import {robots} from './robots'
 
 
 class App extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       robots: robots,
-      searchfield: ''
+      query: ''
     }
   }
 
-  onSearchChange = (event) => {
-   
-    this.setState({ searchfield: event.target.value})
+  onQuery = async(event) => {
+  
+    await this.setState({ query: event.target.value})
     
   }
 
   render(){
-    const {robots, searchfield} = this.state
+    const {robots, query} = this.state
     const filteredRobots = robots.filter(robot =>{
-      return robot.name.toLowerCase().includes(searchfield.toLowerCase());
+      return robot.name.toLowerCase().includes(query.toLowerCase());
     })
     return (
       <div className="tc">
         <h1>Hello Ladies</h1>
-        <SearchBox searchChange ={this.onSearchChange}/>
+        <SearchBox onQuery ={this.onQuery}/>
         <CardList robots={filteredRobots}/>
       </div>
     )
