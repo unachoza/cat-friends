@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Card from './Card'
-import CardList from './CardList'
 import App from './App';
 import 'tachyons'
 import * as serviceWorker from './serviceWorker';
