@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import CardList from './CardList'
-import SearchBox from './SearchBox'
-import {robots} from './robots'
+import CardList from "../components/CardList"
+import SearchBox from '../components/SearchBox'
+import Scroll from '../components/Scroll'
+import {robots} from '../robots'
 
 
 
@@ -20,7 +21,6 @@ class App extends Component{
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response =>  response.json())
     .then(users => this.setState({robots: robots}))
-    console.log('mounting')
   }
 
   onQuery = async(event) => {
@@ -32,20 +32,21 @@ class App extends Component{
     const filteredRobots = robots.filter(robot =>{
       return robot.name.toLowerCase().includes(query.toLowerCase());
     })
-    if(robots.length === 0) {
-      return <h3>Loading ...</h3>
-    } else {
-      return (
+    return !robots.length ?
+       <h3>Loading ...</h3> :
+       (
         <div className="tc">
           <h3>Hello Ladies</h3>
           <SearchBox onQuery ={this.onQuery}/>
-          <CardList robots={filteredRobots}/>
+          <Scroll>
+            <CardList robots={filteredRobots}/>
+          </Scroll>
         </div>
       )
     }
     
    }
-}
+
 
 
 
