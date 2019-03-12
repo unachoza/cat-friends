@@ -10,15 +10,21 @@ class App extends Component{
   constructor(props){
     super(props)
     this.state = {
-      robots: robots,
+      robots: [],
       query: ''
     }
   }
 
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response =>  response.json())
+    .then(users => this.setState({robots: robots}))
+    console.log('mounting')
+  }
+
   onQuery = async(event) => {
-  
     await this.setState({ query: event.target.value})
-    
   }
 
   render(){
@@ -26,13 +32,18 @@ class App extends Component{
     const filteredRobots = robots.filter(robot =>{
       return robot.name.toLowerCase().includes(query.toLowerCase());
     })
-    return (
-      <div className="tc">
-        <h1>Hello Ladies</h1>
-        <SearchBox onQuery ={this.onQuery}/>
-        <CardList robots={filteredRobots}/>
-      </div>
-    )
+    if(robots.length === 0) {
+      return <h3>Loading ...</h3>
+    } else {
+      return (
+        <div className="tc">
+          <h3>Hello Ladies</h3>
+          <SearchBox onQuery ={this.onQuery}/>
+          <CardList robots={filteredRobots}/>
+        </div>
+      )
+    }
+    
    }
 }
 
