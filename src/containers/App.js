@@ -17,7 +17,7 @@ class App extends Component {
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
-      .then(cats => this.setState({ cats: cats }));
+      .then(users => this.setState({ cats: cats }));
   }
 
   onQuery = async event => {
@@ -26,15 +26,15 @@ class App extends Component {
 
   render() {
     const { cats, query } = this.state;
-    const filteredcats = cats.filter(robot => {
-      return robot.name.toLowerCase().includes(query.toLowerCase());
+    const filteredcats = cats.filter(cat => {
+      return cat.name.toLowerCase().includes(query.toLowerCase());
     });
     return !cats.length ? (
       <h3>Loading ...</h3>
     ) : (
       <div className="container">
         <div className="tc">
-          <h3>Hello Ladies</h3>
+            <h3>Search for a Cat!</h3>
           <SearchBox onQuery={this.onQuery} />
           <Scroll>
             <CardList cats={filteredcats} />
