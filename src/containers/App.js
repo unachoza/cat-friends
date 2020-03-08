@@ -34,7 +34,7 @@ class App extends Component {
     ) : (
       <div className="container">
         <div className="tc">
-            <h3>Search for a Cat!</h3>
+          <h3>Search for a Cat!</h3>
           <SearchBox onQuery={this.onQuery} />
           <Scroll>
             <CardList cats={filteredcats} />
