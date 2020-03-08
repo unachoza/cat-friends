@@ -1,4 +1,4 @@
-export const robots = [
+export const cats = [
   {
     id: 1,
     name: 'Leanne Graham',
@@ -115,7 +115,7 @@ export const robots = [
   },
   {
     id: 110,
-    name: 'Clementina DuBuque',
+    name: 'Beth DuBuque',
     username: 'oriah.Stanton',
     email: 'Tey.Padberg@karina.biz'
   }

@@ -1,15 +1,15 @@
 import React from 'react'
-import Card from './Card'
+import Card from 'components/Card'
 
-const CardList = ({robots}) => {
+const CardList = ({cats}) => {
     
-    const cardComponenet = robots.map((user, i)=> {
+    const cardComponenet = cats.map((user, i)=> {
         return (
         <Card 
         key={i} 
-        id={robots[i].id} 
-        name={robots[i].name} 
-        email={robots[i].email}/>
+        id={cats[i].id} 
+        name={cats[i].name} 
+        email={cats[i].email}/>
         )
     })
     return(
