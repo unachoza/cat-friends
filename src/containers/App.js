@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import cat from 'assets/cat-1.png';
 import 'containers/App.css';
 import CardList from 'components/CardList';
 import SearchBox from 'components/SearchBox';
@@ -18,7 +17,7 @@ class App extends Component {
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
-      .then(users => this.setState({ cats: cats }));
+      .then(cats => this.setState({ cats: cats }));
   }
 
   onQuery = async event => {
@@ -34,11 +33,8 @@ class App extends Component {
       <h3>Loading ...</h3>
     ) : (
       <div className="container">
-        {/* <img src={cat} alt="cat walking right" className="cat-background" /> */}
-
         <div className="tc">
           <h3>Hello Ladies</h3>
-
           <SearchBox onQuery={this.onQuery} />
           <Scroll>
             <CardList cats={filteredcats} />
