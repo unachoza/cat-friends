@@ -1,14 +1,22 @@
-
-
-.card{
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+h3 {
+  font-size: 3em;
+  margin-bottom: 26px !important;
+}
+p {
+  margin-top: 2px;
+}
+.card {
   display: inline-flex;
   flex-wrap: wrap;
 }
-h3{
-  font-size: 4em;
- 
-}
 
-.input{
+.input {
   margin-bottom: 20px;
 }

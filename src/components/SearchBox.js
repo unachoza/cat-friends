@@ -6,7 +6,7 @@ const SearchBox = ({query, onQuery}) => {
     return (
         <div className="pa">
             <input
-                className="pa3 ba b--green bg-lightest-blue input"
+                className="pa2 ba b--green bg-lightest-blue input"
                 type="search"
                 placeholder="search cats"
                 onChange={onQuery}
