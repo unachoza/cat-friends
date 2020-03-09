@@ -1,6 +1,6 @@
-import CHANGE_SEARCH_FIELD from 'redux/types/types'
+import {actionTypes} from 'redux/types/types';
 
 export const setSearchField = (text) => ({
- type: CHANGE_SEARCH_FIELD, 
+ type: actionTypes.CHANGE_SEARCH_FIELD, 
  payload: text
 })

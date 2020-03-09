@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 import 'containers/App.css';
 import CardList from 'components/CardList';
 import SearchBox from 'components/SearchBox';
@@ -45,4 +46,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(App);
