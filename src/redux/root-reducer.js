@@ -1,11 +1,6 @@
-import { combineReducers } from 'redux'
-import searchCatsReducer from 'redux/reducers/reducers'
+import { combineReducers } from 'redux';
+import { searchCats, requestCats } from 'redux/reducers/reducers';
 
+const rootReducer = combineReducers({ searchCats, requestCats });
 
-
- const rootReducer =  combineReducers({searchCatsReducer
-
-})
-
-export default rootReducer
-
+export default rootReducer;
