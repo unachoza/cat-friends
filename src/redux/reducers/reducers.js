@@ -1,11 +1,10 @@
 import {actionTypes} from 'redux/types/types';
 
 const INITIAL_STATE = {
-  cats: [],
   query: '',
 };
 
-const reducer = (state = INITIAL_STATE, action) => {
+const searchCatsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actionTypes.CHANGE_SEARCH_FIELD:
       return {
@@ -18,4 +17,4 @@ const reducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default reducer;
+export default searchCatsReducer;

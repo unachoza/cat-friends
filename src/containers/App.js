@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import {setSearchField} from 'redux/actions/actions'
 import 'containers/App.css';
 import CardList from 'components/CardList';
 import SearchBox from 'components/SearchBox';
@@ -9,10 +10,10 @@ import { cats } from 'CatData.js';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      cats: [],
-      query: '',
-    };
+    // this.state = {
+    //   cats: [],
+    //   // query: '',
+    // };
   }
 
   componentDidMount() {
@@ -21,12 +22,13 @@ class App extends Component {
       .then(users => this.setState({ cats: cats }));
   }
 
-  onQuery = async event => {
-    await this.setState({ query: event.target.value });
-  };
+  // onQuery = async event => {
+  //   await this.setState({ query: event.target.value });
+  // };
 
   render() {
-    const { cats, query } = this.state;
+    // const { cats, query } = this.state;
+    const {onQueryChange, query} = this.props
     const filteredcats = cats.filter(cat => {
       return cat.name.toLowerCase().includes(query.toLowerCase());
     });
@@ -36,7 +38,7 @@ class App extends Component {
       <div className="container">
         <div className="tc">
           <h3>Search for a Cat!</h3>
-          <SearchBox onQuery={this.onQuery} />
+          <SearchBox onQuery={onQueryChange} />
           <Scroll>
             <CardList cats={filteredcats} />
           </Scroll>
@@ -45,5 +47,10 @@ class App extends Component {
     );
   }
 }
-
-export default connect(App);
+const mapStateToProps = state => ({
+query: state.searchCatsReducer.query
+})
+const mapDispatchtoProps = dispatch => ({
+  onQueryChange: (event) => dispatch(setSearchField(event.target.value)),
+});
+export default connect(mapStateToProps, mapDispatchtoProps)(App);
