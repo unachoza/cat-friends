@@ -5,7 +5,7 @@ export const setSearchField = text => ({
   payload: text,
 });
 
-export const requestCats = dispatch => {
+export const requestCats = () => dispatch => {
   dispatch({ type: actionTypes.REQUEST_CATS_START });
   fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
